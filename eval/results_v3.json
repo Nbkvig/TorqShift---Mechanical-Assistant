@@ -1,0 +1,130 @@
+{
+  "mean_score": 0.95,
+  "results": [
+    {
+      "id": 1,
+      "query": "What is the engine oil capacity for the 2017 Subaru WRX?",
+      "car": "WRX",
+      "score": 0.75,
+      "matched_keywords": [
+        "oil",
+        "capacity",
+        "liter"
+      ],
+      "response": "The engine oil capacity for the 2017 Subaru WRX is as follows: \n- STI: 4.5 US qt (4.3 liters, 3.8 Imp qt) \n- Except STI: 5.4 US qt (5.1 liters, 4.5 Imp qt)"
+    },
+    {
+      "id": 2,
+      "query": "What is the recommended oil viscosity for the 2017 WRX?",
+      "car": "WRX",
+      "score": 1.0,
+      "matched_keywords": [
+        "5W-30",
+        "synthetic",
+        "viscosity",
+        "oil"
+      ],
+      "response": "The recommended oil viscosity for the 2017 WRX is 5W-30 synthetic oil for optimum engine performance and protection. If synthetic oil is unavailable, conventional oil of 5W-40 may be used temporarily, but it should be changed to 5W-30 synthetic oil at the next oil change."
+    },
+    {
+      "id": 3,
+      "query": "What type of coolant does the 2017 Subaru WRX use?",
+      "car": "WRX",
+      "score": 1.0,
+      "matched_keywords": [
+        "coolant",
+        "Super Coolant",
+        "Subaru"
+      ],
+      "response": "The 2017 Subaru WRX uses SUBARU Super Coolant, which does not require the first change for 11 years/137,500 miles (11 years/220,000 km)."
+    },
+    {
+      "id": 4,
+      "query": "What is the coolant capacity for the 2017 WRX?",
+      "car": "WRX",
+      "score": 1.0,
+      "matched_keywords": [
+        "coolant",
+        "liter",
+        "quart",
+        "capacity"
+      ],
+      "response": "The coolant capacity for the 2017 WRX is 8.2 US quarts (7.7 liters, 6.8 Imp quarts) for general models, 8.7 US quarts (8.2 liters, 7.2 Imp quarts) for manual transmission models, and 8.9 US quarts (8.4 liters, 7.4 Imp quarts) for CVT models."
+    },
+    {
+      "id": 5,
+      "query": "What is the transmission fluid capacity for the 2016 Honda Odyssey?",
+      "car": "Odyssey",
+      "score": 1.0,
+      "matched_keywords": [
+        "transmission",
+        "fluid",
+        "capacity",
+        "liter"
+      ],
+      "response": "The transmission fluid capacity for the Honda Odyssey is 1.93 US gallons (7.3 liters), including the remaining 0.225 US gallons (0.85 liters) in the reserve tank."
+    },
+    {
+      "id": 6,
+      "query": "What type of engine oil does the 2016 Honda Odyssey use?",
+      "car": "Odyssey",
+      "score": 1.0,
+      "matched_keywords": [
+        "0W-20",
+        "Honda",
+        "oil",
+        "detergent"
+      ],
+      "response": "The 2016 Honda Odyssey uses Genuine Honda Motor Oil 0W-20 or API Premium-grade 0W-20 detergent oil."
+    },
+    {
+      "id": 7,
+      "query": "How do I reset the maintenance minder on the 2016 Honda Odyssey?",
+      "car": "Odyssey",
+      "score": 1.0,
+      "matched_keywords": [
+        "maintenance minder",
+        "reset",
+        "ignition"
+      ],
+      "response": "To reset the maintenance minder on the 2016 Honda Odyssey, follow these steps:\n\n1. Turn the ignition switch to ON (or set the power mode to ON).\n2. Press and hold the (Select/Reset) knob (or SEL/RESET button) for 10 seconds or more.\n   - The information display shows the reset mode initial display.\n3. Select oil life with the knob (or display the engine oil life by repeatedly pressing the SEL/RESET button).\n4. Press and hold the knob (or select RESET with the / button, then press the SEL/RESET button) for a few seconds to enter the oil life reset mode.\n5. Press and hold the knob (or press the SEL/RESET button) for five seconds or more.\n   - The displayed maintenance items disappear and the engine oil life display will return to 100%.\n\nIf you wish to cancel the oil life reset mode, select CANCEL, then press the SEL/RESET button. \n\nPlease ensure to reset the engine oil life display after performing maintenance service to avoid incorrect maintenance intervals, which can lead to serious mechanical problems."
+    },
+    {
+      "id": 8,
+      "query": "What brake fluid does the Honda Odyssey require?",
+      "car": "Odyssey",
+      "score": 1.0,
+      "matched_keywords": [
+        "brake fluid",
+        "DOT",
+        "Honda"
+      ],
+      "response": "The Honda Odyssey requires Honda Heavy Duty Brake Fluid DOT 3."
+    },
+    {
+      "id": 9,
+      "query": "What is the tire pressure specification for the 2016 Honda Odyssey?",
+      "car": "Odyssey",
+      "score": 1.0,
+      "matched_keywords": [
+        "tire",
+        "pressure",
+        "psi",
+        "kPa"
+      ],
+      "response": "The tire pressure specifications for the 2016 Honda Odyssey are as follows:\n\n- For tire size P235/65R17: 33 psi (230 kPa [2.3 kgf/cm\u00b2])\n- For tire size P235/60R18: 35 psi (240 kPa [2.4 kgf/cm\u00b2])"
+    },
+    {
+      "id": 10,
+      "query": "What is the top speed of the 2017 Subaru WRX?",
+      "car": "WRX",
+      "score": 0.75,
+      "matched_keywords": [
+        "not",
+        "manual",
+        "excerpts"
+      ],
+      "response": "The information regarding the top speed of the 2017 Subaru WRX is not found in the excerpts provided from the official service manual."
+    }
+  ]
+}

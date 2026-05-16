@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "query": "What is the engine oil capacity for the 2017 Subaru WRX?",
+    "car": "WRX",
+    "expected_keywords": ["oil", "capacity", "liter", "quart"],
+    "notes": "Should return specific capacity values with units"
+  },
+  {
+    "id": 2,
+    "query": "What is the recommended oil viscosity for the 2017 WRX?",
+    "car": "WRX",
+    "expected_keywords": ["5W-30", "synthetic", "viscosity", "oil"],
+    "notes": "Should return 5W-30 synthetic oil recommendation"
+  },
+  {
+    "id": 3,
+    "query": "What type of coolant does the 2017 Subaru WRX use?",
+    "car": "WRX",
+    "expected_keywords": ["coolant", "Super Coolant", "Subaru"],
+    "notes": "Should return SUBARU Super Coolant"
+  },
+  {
+    "id": 4,
+    "query": "What is the coolant capacity for the 2017 WRX?",
+    "car": "WRX",
+    "expected_keywords": ["coolant", "liter", "quart", "capacity"],
+    "notes": "Should return specific capacity with MT/CVT variants"
+  },
+  {
+    "id": 5,
+    "query": "What is the transmission fluid capacity for the 2016 Honda Odyssey?",
+    "car": "Odyssey",
+    "expected_keywords": ["transmission", "fluid", "capacity", "liter"],
+    "notes": "Should return 7.3 liters total capacity"
+  },
+  {
+    "id": 6,
+    "query": "What type of engine oil does the 2016 Honda Odyssey use?",
+    "car": "Odyssey",
+    "expected_keywords": ["0W-20", "Honda", "oil", "detergent"],
+    "notes": "Should return Genuine Honda Motor Oil 0W-20"
+  },
+  {
+    "id": 7,
+    "query": "How do I reset the maintenance minder on the 2016 Honda Odyssey?",
+    "car": "Odyssey",
+    "expected_keywords": ["maintenance minder", "reset", "ignition"],
+    "notes": "Should return step by step reset procedure"
+  },
+  {
+    "id": 8,
+    "query": "What brake fluid does the Honda Odyssey require?",
+    "car": "Odyssey",
+    "expected_keywords": ["brake fluid", "DOT", "Honda"],
+    "notes": "Should return Honda Heavy Duty Brake Fluid DOT 3"
+  },
+  {
+    "id": 9,
+    "query": "What is the tire pressure specification for the 2016 Honda Odyssey?",
+    "car": "Odyssey",
+    "expected_keywords": ["tire", "pressure", "psi", "kPa"],
+    "notes": "Should return specific psi values per tire size"
+  },
+  {
+    "id": 10,
+    "query": "What is the top speed of the 2017 Subaru WRX?",
+    "car": "WRX",
+    "expected_keywords": ["not", "cannot", "manual", "excerpts"],
+    "notes": "Out of scope — app should refuse rather than hallucinate"
+  }
+]
