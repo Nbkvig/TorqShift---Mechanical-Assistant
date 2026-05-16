@@ -21,7 +21,7 @@ COLLECTION = "torqshift_manuals"
 CHROMA_DIR = os.path.join(os.path.dirname(__file__), "..", "chroma_db")
 EMBED_MODEL = "text-embedding-3-small"
 CHAT_MODEL = "gpt-4o-mini"
-TOP_K = 5
+TOP_K = 8
 TEST_CASES_PATH = os.path.join(os.path.dirname(__file__), "test_cases.json")
 RESULTS_PATH = os.path.join(os.path.dirname(__file__), "results.json")
 
@@ -43,21 +43,38 @@ def synthesize_answer(client, query: str, chunks: list[dict]) -> str:
     )
     system = (
         "You are TorqShift, an AI assistant for DIY mechanics. Answer the user's "
-        "question using ONLY the following excerpts from the official service manual. "
-        "Do not use outside knowledge. If the answer is not in the excerpts, say so.\n\n"
+        "question using ONLY the following excerpts from the official owner's manual. "
+        "Do not use outside knowledge. If the answer is not in the excerpts, say so. "
+        "When the answer involves specific information, extract exact numeric values, units, "
+        "and part names directly from the context.\n\n"
         f"Context:\n{context}"
     )
     resp = client.chat.completions.create(
         model=CHAT_MODEL,
+        temperature=0.0,
         messages=[{"role": "system", "content": system}, {"role": "user", "content": query}],
     )
     return resp.choices[0].message.content or ""
 
-
-def score_response(response: str, keywords: list[str]) -> tuple[float, list[str]]:
-    lower = response.lower()
-    matched = [kw for kw in keywords if kw.lower() in lower]
-    return len(matched) / len(keywords) if keywords else 0.0, matched
+# LLM as a judge
+def score_response(client, query: str, response: str, notes: str) -> float:
+    judge_prompt = (
+        f"You are evaluating an AI assistant's answer to a car manual question.\n"
+        f"Question: {query}\n"
+        f"Expected behavior: {notes}\n"
+        f"AI Response: {response}\n\n"
+        f"Score the response from 0.0 to 1.0 based on correctness and completeness.\n"
+        f"Reply with ONLY a number between 0.0 and 1.0, nothing else."
+    )
+    resp = client.chat.completions.create(
+        model=CHAT_MODEL,
+        temperature=0.0,
+        messages=[{"role": "user", "content": judge_prompt}],
+    )
+    try:
+        return float(resp.choices[0].message.content.strip())
+    except:
+        return 0.0
 
 
 def main():
@@ -76,14 +93,13 @@ def main():
     results = []
     scores = []
 
-    header = f"{'ID':<4} {'Query':<40} {'Car':<8} {'Score':<7} Matched Keywords"
+    header = f"{'ID':<4} {'Query':<40} {'Car':<8} {'Score':<7}"
     print(header)
     print("-" * len(header))
 
     for tc in test_cases:
         query = tc["query"]
         car = tc["car"]
-        keywords = tc["expected_keywords"]
 
         chunks = retrieve_chunks(client, collection, query, car)
         if chunks:
@@ -91,18 +107,17 @@ def main():
         else:
             answer = "No context found in manual."
 
-        score, matched = score_response(answer, keywords)
+        score = score_response(client, query, answer, tc["notes"])
         scores.append(score)
 
         truncated_query = query[:38] + ".." if len(query) > 40 else query
-        print(f"{tc['id']:<4} {truncated_query:<40} {car:<8} {score:<7.2f} {matched}")
+        print(f"{tc['id']:<4} {truncated_query:<40} {car:<8} {score:<7.2f}")
 
         results.append({
             "id": tc["id"],
             "query": query,
             "car": car,
             "score": round(score, 4),
-            "matched_keywords": matched,
             "response": answer,
         })
 
