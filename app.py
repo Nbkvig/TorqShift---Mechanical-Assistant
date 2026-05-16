@@ -132,6 +132,16 @@ uploaded_image = st.file_uploader("Upload a photo (optional)", type=["jpg", "jpe
 query = st.chat_input("Ask a question about your vehicle...")
 
 if query:
+    # Prompt injection guard
+    injection_keywords = [
+        "ignore previous", "ignore instructions", "disregard",
+        "forget instructions", "you are now", "act as",
+        "jailbreak", "pretend you are"
+    ]
+    if any(kw in query.lower() for kw in injection_keywords):
+        st.error("Invalid input detected. Please ask a question about your vehicle.")
+        st.stop()
+
     if not query.strip():
         st.warning("Please enter a question.")
         st.stop()

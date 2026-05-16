@@ -131,7 +131,7 @@ Also Another problem was with Kiro using “service manual” throughout the gen
 
 The most significant safety risk within this project would be the hallucination harm. If the model returned an incorrect torque specification or fluid type that could lead to serious mechanical damage to user vehicles. If for example the LLM gave the user a capacity  more than what is stated within the manual it could lead to the car smoking white smoke from exhaust or even having a rough idle
 
-The primary mitigation of this was using the RAG architecture. With this it grounds the instructions of the LLM model to only retrieve from within the manual excerpts and to refuse any context that doesn’t fall in line with it. There are citations that show the exact page number displayed with the answer so users can verify the answers themselves. The accepted limit is that the system could occasionally retrieve the wrong chunk within the vector database for certain queries
+The primary mitigation of this was using the RAG architecture. With this it grounds the instructions of the LLM model to only retrieve from within the manual excerpts and to refuse any context that doesn’t fall in line with it. There are citations that show the exact page number displayed with the answer so users can verify the answers themselves. The accepted limit is that the system could occasionally retrieve the wrong chunk within the vector database for certain queries. Also added a prompt injection gaurd for certain keywords. However, testing it without it seemed to work regardless.
 
 
 
